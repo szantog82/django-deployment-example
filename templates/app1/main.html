@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<h1>Welcome to my webpage</h1>
+	<div class="jumbotron">
+		<h2>You can check my Clients' list at:</h2>
+		<p>/clients/ address</p>
+		<a href="{% url 'index' %}">link</a>
+		<a href={% url 'admin:index' %}>admin</a>
+	</div>
+	<div class="container">
+		<form method="POST">
+			{{ form.as_p }}
+			{% csrf_token %}
+			 <input type="submit" class="btn btn-primary"
+				value="submit">
+		</form>
+	</div>
+</body>

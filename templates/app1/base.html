@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li class="navbar-brand"><a href="{%url 'index'%}">BRAND</a></li>
+				<li class="navbar-link"><a href="{%url 'admin:index'%}">Admin</a></li>
+				<li class="navbar-link"><a href="{%url 'app1:register'%}">Registration</a></li>
+				<li class="navbar-link"><a href="{%url 'app1:other'%}">Other</a></li>
+				<li class="navbar-link"><a href="{%url 'app1:clients'%}">Clients</a></li>
+				
+				{% if user.is_authenticated %}
+				<li class="navbar-link"><a href="{%url 'app1:special'%}">Special</a></li>
+				<li class="navbar-link"><a href="{%url 'logout'%}">Logout</a></li>
+				{% else %}
+				<li class="navbar-link"><a href="{%url 'app1:user_login'%}">Login</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		{% block body_block %}
+		<!--everything outside this will be inherited-->
+		{% endblock %}
+	</div>
+
+
+</body>

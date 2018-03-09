@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+{% extends "app1/base.html"%}
+{% load staticfiles %}  {%block body_block%}
+{% load my_extras %}
+
+<h1>Welcome here!</h1>
+<h2>Clients' data</h2>
+
+{% if data %}
+
+<ol>
+	{% for entry in data %}
+	<li>item
+		<ul>
+			<li>First name: {{ entry.FIRST_NAME|cutt:"ael" }}</li>
+			<li>Last name: {{ entry.LAST_NAME }}</li>
+			<li>E-mail: {{ entry.E_MAIL }}</li>
+		</ul>
+	</li> {% endfor %}
+</ol>
+
+{% else %}
+<p>NO DATA FOUND!</p>
+
+{% endif %}
+
+<p>image comes here</p>
+<img src="{% static 'images/pink.jpg' %}" alt="something went wrong">
+</body>
+
+{%endblock%}
